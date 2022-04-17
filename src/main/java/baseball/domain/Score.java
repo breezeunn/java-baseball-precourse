@@ -3,19 +3,24 @@ package baseball.domain;
 public class Score {
     private final int strikeCount;
     private final int ballCount;
+
     public Score(Computer computer, Player player) {
         strikeCount = calculateStrikeCount(computer, player);
         ballCount = calculateBallCount(computer, player);
     }
+
     public boolean isAnswer() {
         return strikeCount == 3;
     }
+
     public int getStrikeCount() {
         return strikeCount;
     }
+
     public int getBallCount() {
         return ballCount;
     }
+
     private int calculateStrikeCount(Computer computer, Player player) {
         int count = 0;
 
@@ -26,6 +31,7 @@ public class Score {
 
         return count;
     }
+
     private int calculateBallCount(Computer computer, Player player) {
         int count = 0;
 

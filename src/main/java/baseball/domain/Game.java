@@ -8,9 +8,11 @@ import java.util.List;
 
 public class Game {
     private final Computer computer;
+
     public Game() {
         this.computer = new Computer();
     }
+
     public void run() {
         boolean isAnswer;
         do {
@@ -23,6 +25,7 @@ public class Game {
 
         } while (!isAnswer);
     }
+
     public boolean isQuit() {
         String cmd = GameInput.getUserCmd();
         String END_COMMAND = "2";

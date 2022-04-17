@@ -10,6 +10,7 @@ public class Computer {
     private final int second;
     private final int third;
     private List<Integer> numberList;
+
     public Computer() {
         this.numberList = new ArrayList<>();
 
@@ -22,6 +23,7 @@ public class Computer {
         this.third = getOneDigitRandomNumber();
         numberList.add(this.third);
     }
+
     public int getNumber(int nth) {
         if (nth < 1 || nth > 3) {
             throw new IllegalArgumentException(String.format("Invalid nth value: %s", nth));
@@ -29,16 +31,19 @@ public class Computer {
 
         return getNumberList().get(nth - 1);
     }
+
     public boolean isStrike(int input, int position) {
         int target = getNumber(position);
         return target == input;
     }
+
     public boolean isBall(int input, int position) {
         if (isStrike(input, position)) {
             return false;
         }
         return getNumberList().contains(input);
     }
+
     private int getOneDigitRandomNumber() {
         int result;
         do {
@@ -46,6 +51,7 @@ public class Computer {
         } while (getNumberList().contains(result));
         return result;
     }
+
     public List<Integer> getNumberList() {
         return this.numberList;
     }
