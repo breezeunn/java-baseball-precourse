@@ -20,4 +20,9 @@ class PlayerTest {
     void 입력값_999초과() {
         assertThatThrownBy(() -> new Player("1000")).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 입력값_0포함() {
+        assertThatThrownBy(() -> new Player("708")).isInstanceOf(IllegalArgumentException.class);
+    }
 }

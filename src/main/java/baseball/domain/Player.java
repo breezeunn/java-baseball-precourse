@@ -25,9 +25,28 @@ public class Player {
             return false;
         }
 
-        return (num >= 100 && num <= 999);
+        return isValidNumber(num);
     }
 
+    private boolean isValidNumber(int num) {
+        if (num < 100 || num > 999) {
+            return false;
+        }
+
+        return !hasZero(num) && !hasRepeatedNumber(num);
+    }
+    private boolean hasZero(int num) {
+        int first = (num / 100);
+        int second = (num - (100 * first)) / 10;
+        int third = num % 10;
+        return (first == 0 || second == 0 || third == 0);
+    }
+    private boolean hasRepeatedNumber(int num) {
+        int first = (num / 100);
+        int second = (num - (100 * first)) / 10;
+        int third = num % 10;
+        return (first == second || second == third || first == third);
+    }
     public int getNumber(int nth) {
         if (nth < 1 || nth > 3) {
             throw new IllegalArgumentException(String.format("Invalid nth value : %s", nth));
